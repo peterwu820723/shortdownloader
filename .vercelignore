@@ -1,0 +1,8 @@
+.git/
+.vercel/
+.env*
+.video-downloader/
+node_modules/
+output/
+tmp/
+**/__pycache__/

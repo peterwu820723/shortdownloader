@@ -1,0 +1,11 @@
+node_modules/
+dist/
+output/
+.vercel/
+.env*
+.video-downloader/
+__pycache__/
+*.tsbuildinfo
+tmp/
+
+.vercel
