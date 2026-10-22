@@ -20,7 +20,7 @@ if not exist node_modules (
 )
 call npm run setup
 if errorlevel 1 goto failed
-start "" "http://127.0.0.1:5190"
+set VIDEO_OPEN_BROWSER=1
 call npm start
 if errorlevel 1 goto failed
 exit /b 0

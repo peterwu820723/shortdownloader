@@ -4,6 +4,7 @@ export const WEB_ORIGINS = new Set([
   'https://shortdownloader.com',
   'https://www.shortdownloader.com',
   'https://shortdownloader.vercel.app',
+  'https://shortdownloader.xavvi.site',
 ])
 
 // This capability is scoped to this engine process, never written to disk or URLs.

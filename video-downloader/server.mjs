@@ -380,6 +380,13 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
   const app = await createDownloader({ port })
   await app.listen()
   console.log(`\n  ShortDownloader.com → http://127.0.0.1:${port}\n  保存位置：${app.health.downloadDir}\n  ${app.health.message}\n`)
+  if (process.env.VIDEO_OPEN_BROWSER === '1') {
+    const address = `http://127.0.0.1:${port}`
+    const command = process.platform === 'win32' ? 'cmd.exe' : process.platform === 'darwin' ? 'open' : 'xdg-open'
+    const args = process.platform === 'win32' ? ['/c', 'start', '', address] : [address]
+    const opener = spawn(command, args, { windowsHide: true, stdio: 'ignore' })
+    opener.on('error', () => console.log(`请在浏览器打开 ${address}`))
+  }
   const close = async () => { await app.close(); process.exit(0) }
   process.once('SIGINT', close); process.once('SIGTERM', close)
 }

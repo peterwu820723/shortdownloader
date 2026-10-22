@@ -2,6 +2,8 @@
 
 选择几集，或收藏整部故事。支持 ReelShort、TikTok Short Drama，以及 yt-dlp 支持的视频链接与播放列表。
 
+在线入口：[shortdownloader.xavvi.site](https://shortdownloader.xavvi.site)。品牌域名 ShortDownloader.com 已绑定 Vercel，DNS 配置生效后可使用。
+
 ## 网站与本机引擎
 
 这是一个**线上操作界面 + 单用户本机下载引擎**的项目。Vercel 托管静态 React 界面；Node.js、Python / yt-dlp 和 FFmpeg 在用户电脑下载及合并视频。TikTok 登录也在本机独立浏览器窗口中完成。
@@ -40,7 +42,7 @@ macOS / Linux 使用同样的终端命令；系统需要 Python 3.10+ 与 curl�
 
 Cookie 仅保存到本机 Git 忽略的 `.video-downloader/tiktok-cookies.txt`，会话元数据仅记录 User-Agent 与时间；不返回前端，不写历史，不上传 Vercel 或 GitHub。本工具不读取用户日常浏览器配置或密码，只处理本工具独立窗口中的 TikTok Cookie。可以在界面清除已保存的访问状态。
 
-引擎仅监听 `127.0.0.1`，校验 Host 与来源。远程操作仅允许 `https://shortdownloader.com`、`https://www.shortdownloader.com`、`https://shortdownloader.vercel.app`，并要求随机 256 位连接码。连接码只在当前引擎进程有效，重启或在本机页面更换后失效；线上页面仅在标签页 sessionStorage 保存它，使用 Authorization 请求头发送到本机，不进入 URL、Git 或云端。其他网站即使有连接码也不在允许来源内。不要将本机端口转发到公网。
+引擎仅监听 `127.0.0.1`，校验 Host 与来源。远程操作仅允许 `https://shortdownloader.com`、`https://www.shortdownloader.com`、`https://shortdownloader.vercel.app`、`https://shortdownloader.xavvi.site`，并要求随机 256 位连接码。连接码只在当前引擎进程有效，重启或在本机页面更换后失效；线上页面仅在标签页 sessionStorage 保存它，使用 Authorization 请求头发送到本机，不进入 URL、Git 或云端。其他网站即使有连接码也不在允许来源内。不要将本机端口转发到公网。
 
 从线上任务详情点击取回文件，会打开本机下载记录；视频此前已经自动保存到电脑，可以在本机页面另存。浏览器的本地网络访问策略可能限制线上配对，此时使用本机界面。
 
